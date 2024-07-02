@@ -21,6 +21,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag sarahed/webapp-demo:${{github.run_number}}-${{github.sha}}
     - name: Docker login
-      run: docker login -u ${{secrets.USERNAME}} -p ${{secrets.PASS}}
+      run: docker login -u ${{secrets.DOCKER_HUB_USER}} -p ${{secrets.DOCKER_HUB_PASS}}
     - name: Push the Docker image
       run: docker push sarahed/webapp-demo:${{github.run_number}}-${{github.sha}}
